@@ -21,7 +21,7 @@ angular.module("appModule")
 
         self.addData = function(){
             if(self.textField.length >= 1) {
-                $http.post('api/pets', {text: self.textField}).success(function(){
+                $http.post('api/pets', {text: self.textField}).success(function(){ //add {text: self.textField, weight self.weightField}
                     self.getPets();
                 });
                 self.textField = "";
