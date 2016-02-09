@@ -51,6 +51,8 @@
 
 ##### client/app.js performs client-side routing. How do you think it works?
 
+> It calls the url of the page trying to be accessed, and it routes you to the desired page. If the page doesn't exist, it sends you to the 404 page.
+
 ## Part 2: Add another field to pet data.
 
 - Add a numeric field to the pet model (say, for example, weight). Add a field to enter weight when a new pet document is created. Add a field in the main page to show the heaviest of all pets and its weight. Remember to practice TDD and perform frequent commits.
