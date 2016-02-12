@@ -16,6 +16,6 @@
             </form>
 
         </li>
-        <li class="list-group-item" ng-repeat="thing in main.data">{{thing.text}}<span class="glyphicon glyphicon-trash floatRight" style="color: red" ng-click="main.removeData($index)"></span></li>
+        <li class="list-group-item" ng-repeat="thing in main.data">Name: {{thing.text}} ... Weight: {{thing.weight}}<span class="glyphicon glyphicon-trash floatRight" style="color: red" ng-click="main.removeData($index)"></span></li>
     </ul>
 </div>
