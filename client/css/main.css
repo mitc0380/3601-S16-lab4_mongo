@@ -23,3 +23,7 @@ img {
 .floatRight {
     float: right;
 }
+
+#containerPadding {
+    padding-bottom: 15px;
+}
