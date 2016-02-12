@@ -25,6 +25,7 @@ angular.module("appModule")
                     self.getPets();
                 });
                 self.textField = "";
+                self.weightField = "";
             }
         };
 
