@@ -3,3 +3,21 @@
 
 <hr>
 <h1>GPA Calculator</h1>
+<div class="container" >
+    <ul class="list-group">
+        <li class="list-group-item">
+
+            <form ng-submit="gpaCalcCtrl.addClasses()" id="containerPadding">
+                <input ng-model="gpaCalcCtrl.classNames" type="text" size="50" placeholder="add a class">
+                <input ng-model="gpaCalcCtrl.classCredits" type="number" size="50" placeholder="add credits">
+                <input ng-model="gpaCalcCtrl.classGrades" type="text" size="50" placeholder="add letter grade">
+                <input type="submit" value="submit" class="btn btn-primary">
+                <span class="floatRight">Items in this list: {{gpaCalcCtrl.itemsInList()}}</span>
+                <br>
+                <span class="floatRight"> GPA: {{gpaCalcCtrl.calculateGPA()}}</span>
+            </form>
+
+        </li>
+        <li class="list-group-item" ng-repeat="thing in gpaCalcCtrl.gpadata">Class: {{thing.classNames}} ... Credits: {{thing.classCredits}} ... Grade: {{thing.classGrades}}<span class="glyphicon glyphicon-trash floatRight" style="color: red" ng-click="gpaCalcCtrl.removeData($index)"></span></li>
+    </ul>
+</div>
