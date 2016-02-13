@@ -21,13 +21,14 @@ angular.module("appModule")
 
         self.addData = function(){
             if(self.textField.length >= 1) {
-                $http.post('api/pets', {text: self.textField, weight: self.weightField}).success(function(){
+                $http.post('api/pets', {text: self.textField, weight: self.weightField}).success(function () {
                     self.getPets();
                 });
                 self.textField = "";
                 self.weightField = "";
             }
         };
+
 
         self.removeData = function(index){
             $http.delete('/api/pets/' + self.data[index]._id).success(function(){

@@ -51,3 +51,7 @@ exports.destroy = function(req, res) {
       });
     });
 };
+//
+//exports.getHeaviest = function(req, res) {
+//    res.send();
+//};
