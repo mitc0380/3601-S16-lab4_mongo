@@ -1,4 +1,4 @@
 .idea/*
 client/bower_components/
 node_modules/
-config/mongo.js
+config/mongo1.js

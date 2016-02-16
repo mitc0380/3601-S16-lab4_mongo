@@ -33,6 +33,7 @@ angular.module('appModule')
         self.calculateGPA = function(){
             var qualityPoints = 0;
             var totalCredits = 0;
+            var i = 0;
             for(i = 0; i < self.gpadata.length; i++){
                 qualityPoints = qualityPoints + (parseInt(self.gpadata[i].Credits) * gradeToNumber(self.gpadata[i].Grade));
                 totalCredits = totalCredits + parseInt(self.gpadata[i].Credits);
