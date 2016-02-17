@@ -44,9 +44,12 @@ angular.module("appModule")
             return self.data.length;
         };
 
-        self.getFatPet = function(){
-            console.log (self.data.getHeaviest);
-
-        };
+        //self.getFatPet = function(){
+        //    if(self.data.length < 1){
+        //        return "no pets in database";
+        //    } else {
+        //
+        //    }
+        //};
 
     });
