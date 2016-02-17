@@ -29,8 +29,7 @@ angular.module('appModule')
 
         //adds classes, credits and grade to the list gpadata so long as all fields have something in them and are not in error
         self.addCourses = function(){
-
-            if((self.classNames.length >= 1) && (self.classCredits.length >= 1)) {
+            if((self.classNames.length >= 1) && (self.classGrades.length >= 1) && (!self.isErrorCredits(self.classCredits)) && (!self.isErrorGrades(self.classGrades))) {
                 $http.post('api/GPA', {class: self.classNames, credit: self.classCredits, letter: self.classGrades}).success(function () {
                     self.getCourses();
                     console.log("got to addCourses function");
@@ -43,6 +42,7 @@ angular.module('appModule')
         };
 
         self.removeCourses = function (index) {
+            console.log("got to remove course");
             $http.delete('/api/GPA/' + self.gpadata[index]._id).success(function () {
                 self.getCourses();
             });

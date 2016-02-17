@@ -18,6 +18,6 @@
             </form>
 
         </li>
-        <li class="list-group-item" ng-repeat="thing in gpaCalcMainCtrl.gpadata">Class: {{thing.class}} ... Credits: {{thing.credit}} ... Grade: {{thing.letter}}<span class="glyphicon glyphicon-trash floatRight" style="color: red" ng-click="gpaCalcMainCtrl.removeData($index)"></span></li>
+        <li class="list-group-item" ng-repeat="thing in gpaCalcMainCtrl.gpadata">Class: {{thing.class}} ... Credits: {{thing.credit}} ... Grade: {{thing.letter}}<span class="glyphicon glyphicon-trash floatRight" style="color: red" ng-click="gpaCalcMainCtrl.removeCourses($index)"></span></li>
     </ul>
 </div>
