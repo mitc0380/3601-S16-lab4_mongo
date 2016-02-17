@@ -3,14 +3,14 @@
  */
 'use strict';
 
-console.log("gpaCalc.js loaded!");
+console.log("gpaCalcMain.js loaded!");
 
 angular.module("appModule")
     .config(function($stateProvider){
         $stateProvider
             .state('gpaCalc', {
                 url: '/gpaCalc',
-                templateUrl: 'views/gpaCalculator/gpaCalc.html',
+                templateUrl: 'views/gpaCalculator/gpaCalcMain.html',
                 controller: 'gpaCalcCtrl'
 
             });
