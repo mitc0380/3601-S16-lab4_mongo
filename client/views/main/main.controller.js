@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module("appModule")
-    .controller('mainCtrl', function($http){
+    .controller('mainCtrl', function($http) {
         console.log("main controller loaded!");
 
         var self = this;
@@ -11,16 +11,16 @@ angular.module("appModule")
         // Normally, data like this would be stored in a database, and this controller would issue an http:get request for it.
         self.data = [];
 
-        self.getPets = function(){
-            $http.get('api/pets').success(function(pets) {
+        self.getPets = function () {
+            $http.get('api/pets').success(function (pets) {
                 self.data = pets;
             });
         };
 
         self.getPets();
 
-        self.addData = function(){
-            if(self.textField.length >= 1) {
+        self.addData = function () {
+            if (self.textField.length >= 1) {
                 $http.post('api/pets', {text: self.textField, weight: self.weightField}).success(function () {
                     self.getPets();
                 });
@@ -30,49 +30,40 @@ angular.module("appModule")
         };
 
 
-        self.removeData = function(index){
-            $http.delete('/api/pets/' + self.data[index]._id).success(function(){
+        self.removeData = function (index) {
+            $http.delete('/api/pets/' + self.data[index]._id).success(function () {
                 self.getPets();
             });
         };
 
-        self.cat = function(str1, str2){
+        self.cat = function (str1, str2) {
             return str1 + str2;
         };
 
-        self.itemsInList = function(){
+        self.itemsInList = function () {
             return self.data.length;
         };
 
-        console.log(self.data.length);
-
-        //self.getHeaviestPet = function(){
-        //    var i;
-        //    var max = 0;
-        //    var heaviestPetLocation = 0;
-        //    if(self.data.length < 1){
-        //        return "no pets in database";
-        //    } else {
-        //        for(i = 0; i < self.data.length; i++){
-        //            if(self.data[i].weight > max) {
-        //                console.log(self.data[i]);
-        //                max = self.data[i].weight;
-        //                heaviestPetLocation = i;
-        //                console.log("this is the current max: " + max);
-        //                console.log("this is the current heaviestPetLocation: " + heaviestPetLocation);
-        //            }
-        //        }
-        //        return heaviestPetLocation;
-        //    }
-        //};
-
-        //self.getHeaviestPet();
-
-        self.displayHeaviestPet = function(fatPetIndex){
-            $http.get('api/pets').success(function(pets) {
-                self.data = pets;
-                console.log(pets[0]);
-            })
+        self.getHeaviestPet = function () {
+            var i;
+            var max = 0;
+            var heaviestPetLocation = 0;
+            if (self.data.length < 1) {
+                return "no pets in database";
+            } else {
+                for (i = 0; i < self.data.length; i++) {
+                    if (self.data[i].weight > max) {
+                        //console.log(self.data[i]);
+                        max = self.data[i].weight;
+                        heaviestPetLocation = i;
+                        //console.log("this is the current max: " + max);
+                        //console.log("this is the current heaviestPetLocation: " + heaviestPetLocation);
+                    }
+                }
+                //console.log("This is the heaviest pet object: " + self.data[heaviestPetLocation]);
+                return self.data[heaviestPetLocation];
+            }
         };
+
 
     });
