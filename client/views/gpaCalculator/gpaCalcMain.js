@@ -11,7 +11,8 @@ angular.module("appModule")
             .state('gpaCalc', {
                 url: '/gpaCalc',
                 templateUrl: 'views/gpaCalculator/gpaCalcMain.html',
-                controller: 'gpaCalcCtrl'
+                controller: 'gpaCalcMainCtrl',
+                controllerAs: 'gpaCalcMainCtrl'
 
             });
     });

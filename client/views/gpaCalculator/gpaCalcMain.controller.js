@@ -5,6 +5,7 @@
 
 angular.module('appModule')
     .controller('gpaCalcMainCtrl', function($http){
+        console.log("gpaCalcMain controller loaded!");
         //text fields for class, the class's credits and the class's grade
         var self = this;
 
@@ -15,10 +16,12 @@ angular.module('appModule')
         //array where classes are stored
         //initialized as empty
         self.gpadata = [];
+        //{"class":"Jack","credit":5, "letter": "A","_id":"56c4bc3bf48c1cfc088d29d2","__v":0}
 
         self.getCourses = function () {
             $http.get('api/GPA').success(function (courses) {
                 self.gpadata = courses;
+                console.log("got to getCourses function");
             });
         };
 
@@ -26,10 +29,13 @@ angular.module('appModule')
 
         //adds classes, credits and grade to the list gpadata so long as all fields have something in them and are not in error
         self.addCourses = function(){
-            if((self.classNames.length >= 1) && (self.classCredits.length >= 1) && (self.classGrades.length >= 1) && !(isErrorCredits(self.classCredits))) {
+
+            if((self.classNames.length >= 1) && (self.classCredits.length >= 1)) {
                 $http.post('api/GPA', {class: self.classNames, credit: self.classCredits, letter: self.classGrades}).success(function () {
                     self.getCourses();
+                    console.log("got to addCourses function");
                 });
+
                 self.classNames = "";
                 self.classCredits = "";
                 self.classGrades = "";
