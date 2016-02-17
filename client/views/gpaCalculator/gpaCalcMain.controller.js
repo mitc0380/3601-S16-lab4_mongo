@@ -50,13 +50,13 @@ angular.module('appModule')
 
 
         //takes in the three grades and their respective credit hours and returns GPA
-        self.calculateGPA = function(){
+        self.calculateGPA = function(courseArray){
             var qualityPoints = 0;
             var totalCredits = 0;
             var i = 0;
-            for(i = 0; i < self.gpadata.length; i++){
-                qualityPoints = qualityPoints + (parseInt(self.gpadata[i].credit) * self.gradeToNumber(self.gpadata[i].letter));
-                totalCredits = totalCredits + parseInt(self.gpadata[i].credit);
+            for(i = 0; i < courseArray.length; i++){
+                qualityPoints = qualityPoints + (parseInt(courseArray[i].credit) * self.gradeToNumber(courseArray[i].letter));
+                totalCredits = totalCredits + parseInt(courseArray[i].credit);
             }
 
 
