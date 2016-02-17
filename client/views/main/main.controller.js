@@ -44,24 +44,24 @@ angular.module("appModule")
             return self.data.length;
         };
 
-        self.getHeaviestPet = function () {
+        self.getHeaviestPet = function (petArray) {
             var i;
             var max = 0;
             var heaviestPetLocation = 0;
-            if (self.data.length < 1) {
+            if (petArray.length < 1) {
                 return "no pets in database";
             } else {
-                for (i = 0; i < self.data.length; i++) {
-                    if (self.data[i].weight > max) {
-                        //console.log(self.data[i]);
-                        max = self.data[i].weight;
+                for (i = 0; i < petArray.length; i++) {
+                    if (petArray[i].weight > max) {
+                        console.log(petArray[i]);
+                        max = petArray[i].weight;
                         heaviestPetLocation = i;
-                        //console.log("this is the current max: " + max);
-                        //console.log("this is the current heaviestPetLocation: " + heaviestPetLocation);
+                        console.log("this is the current max: " + max);
+                        console.log("this is the current heaviestPetLocation: " + heaviestPetLocation);
                     }
                 }
                 //console.log("This is the heaviest pet object: " + self.data[heaviestPetLocation]);
-                return self.data[heaviestPetLocation];
+                return petArray[heaviestPetLocation];
             }
         };
 
