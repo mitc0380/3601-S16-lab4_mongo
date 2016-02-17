@@ -51,7 +51,8 @@ exports.destroy = function(req, res) {
       });
     });
 };
-//
+
 //exports.getHeaviest = function(req, res) {
-//    res.send();
+//    console.log("Testing stuff: " + Pet.find({text: 1, weight: 1}).sort({weight: -1}).limit(1));
+//    res.send(Pet.find({text: 1, weight: 1}).sort({weight: -1}).limit(1));
 //};
