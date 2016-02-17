@@ -44,12 +44,35 @@ angular.module("appModule")
             return self.data.length;
         };
 
-        //self.getFatPet = function(){
+        console.log(self.data.length);
+
+        //self.getHeaviestPet = function(){
+        //    var i;
+        //    var max = 0;
+        //    var heaviestPetLocation = 0;
         //    if(self.data.length < 1){
         //        return "no pets in database";
         //    } else {
-        //
+        //        for(i = 0; i < self.data.length; i++){
+        //            if(self.data[i].weight > max) {
+        //                console.log(self.data[i]);
+        //                max = self.data[i].weight;
+        //                heaviestPetLocation = i;
+        //                console.log("this is the current max: " + max);
+        //                console.log("this is the current heaviestPetLocation: " + heaviestPetLocation);
+        //            }
+        //        }
+        //        return heaviestPetLocation;
         //    }
         //};
+
+        //self.getHeaviestPet();
+
+        self.displayHeaviestPet = function(fatPetIndex){
+            $http.get('api/pets').success(function(pets) {
+                self.data = pets;
+                console.log(pets[0]);
+            })
+        };
 
     });
