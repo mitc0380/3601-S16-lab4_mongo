@@ -44,4 +44,9 @@ angular.module("appModule")
             return self.data.length;
         };
 
+        self.getFatPet = function(){
+            console.log (self.data.getHeaviest);
+
+        };
+
     });
